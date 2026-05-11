@@ -1,7 +1,7 @@
 '''
     Rutgers CS439: INTRO TODATA SCIENCE 
     Prof: Dr. Ruixiang (Ryan) Tang
-    By: Shurti Shukla (NetID: scs250)
+    By: Shruti Shukla (NetID: scs250)
 
     Research Question:
     Which customer features are most associated with telecom customer churn,
