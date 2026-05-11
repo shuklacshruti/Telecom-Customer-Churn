@@ -17,9 +17,8 @@
 
 \author{%
   Shruti Shukla \\
-  Department of Computer Science \\
-  Rutgers University \\
-  \texttt{scs250@rutgers.edu}
+  Section 05 $\mid$ NetID: scs250 \\
+  Rutgers University, CS439 \\
 }
 
 \begin{document}
@@ -28,20 +27,24 @@
 
 % ── ABSTRACT ──────────────────────────────────────────────────
 \begin{abstract}
-Customer churn poses a significant challenge in the telecommunications
-industry, where acquiring a new customer is substantially more expensive than
-retaining an existing one. This project presents an end-to-end machine
-learning pipeline for churn prediction using the IBM Telco Customer Churn
-dataset (7,032 records). We perform comprehensive data preprocessing,
-exploratory data analysis, and feature engineering, then train and evaluate
-three classification models: Logistic Regression, Decision Tree, and Random
-Forest. Class imbalance is addressed using SMOTE. All models are evaluated
-using accuracy, precision, recall, F1-score, and ROC-AUC, with recall
-emphasized as the primary metric. Results show that Logistic Regression and
-Random Forest achieve AUC $\approx 0.817$, with churn recall of 64\% and
-65\% respectively. Feature importance analysis consistently identifies payment
-method, tenure, contract type, and monthly charges as the strongest
-predictors of churn.
+Customer churn is a key challenge in telecommunications, where retention is
+more cost-effective than acquisition. This project presents an end-to-end
+machine learning pipeline using the IBM Telco Customer Churn dataset (7,032
+records), covering preprocessing, exploratory analysis, feature engineering,
+and evaluation of three classifiers: Logistic Regression, Decision Tree, and
+Random Forest. Class imbalance is addressed with SMOTE. Logistic Regression
+and Random Forest achieve AUC $\approx 0.817$; feature importance analysis
+identifies payment method, tenure, contract type, and monthly charges as the
+strongest churn predictors.
+
+\vspace{0.5em}
+
+\noindent
+Code: \url{https://github.com/shuklacshruti/Telecom-Customer-Churn}
+
+\noindent
+Video: \url{https://drive.google.com/file/d/1Ri-eEW48S2MfihxOYHyFVe-qEHgpm-cq/view?usp=sharing}
+
 \end{abstract}
 
 
@@ -143,8 +146,7 @@ the primary evaluation metric.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.45\linewidth]{plot_01_churn_distribution.png}
-  \caption{Churn distribution. Approximately 26.6\% of customers churned,
-  creating a class imbalance that must be addressed during model training.}
+ \caption{Churn distribution: 26.6\% churned, 73.4\% stayed.}
   \label{fig:churn_dist}
 \end{figure}
 
@@ -161,9 +163,7 @@ correlation, suggesting that support-related services improve retention.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\linewidth]{plot_03_correlation_churn.png}
-  \caption{Pearson correlation of each feature with churn. Tenure is the
-  strongest negative predictor; InternetService and MonthlyCharges are the
-  strongest positive predictors.}
+  \caption{Pearson correlation with churn. Tenure ($r=-0.35$) is the strongest negative predictor.}
   \label{fig:corr}
 \end{figure}
 
@@ -178,8 +178,8 @@ creates a low barrier to switching.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\linewidth]{plot_05_contract_churn.png}
-  \caption{Churn counts by contract type. Month-to-month customers account
-  for the vast majority of churners; two-year customers almost never leave.}
+  \caption{Month-to-month customers churn at 42.7\%; two-year at 2.8\%.}
+
   \label{fig:contract}
 \end{figure}
 
@@ -196,16 +196,16 @@ customers (riskFlag = 1), the churn rate is \textbf{51.3\%}, versus only
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth]{plot_06_tenure_churn.png}
-  \caption{Tenure distribution by churn status. Churners spike in the first
-  1--5 months; loyal customers accumulate at 60--72 months.}
+  \caption{Churners average 18.0 months tenure vs.\ 37.7 months for loyal customers.}
+
   \label{fig:tenure}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth]{plot_07_tenure_vs_charges.png}
-  \caption{Tenure vs.\ Monthly Charges colored by churn. Churners cluster
-  in the high-charge, short-tenure region, validating the riskFlag feature.}
+  \caption{Churners cluster in the upper-left (short tenure, high charges).}
+
   \label{fig:scatter}
 \end{figure}
 
